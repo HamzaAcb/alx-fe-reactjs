@@ -13,8 +13,8 @@ function App() {
 
   return (
     <>
-    <Header />
-    <div>
+      <Header />
+      <div>
         <a href="https://vitejs.dev" target="_blank" rel="noopener noreferrer">
           <img src={viteLogo} className="logo" alt="Vite logo" />
         </a>
@@ -25,8 +25,7 @@ function App() {
       <h1>Vite + React</h1>
       <WelcomeMessage />
       <MainContent />
-      <UserProfile name="Hamza" age="25" bio="Loves football and coding" />
-      <div className="card"></div>
+      <UserProfile name="Alice" age="25" bio="Loves hiking and photography" />
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
