@@ -1,23 +1,23 @@
-import React from 'react';
+import { Link } from 'react-router-dom';
 import { useRecipeStore } from './recipeStore';
-import SearchBar from './SearchBar';
 
 const RecipeList = () => {
-  const filteredRecipes = useRecipeStore(state => state.filteredRecipes);
-  const recipes = useRecipeStore(state => state.recipes);
-
-  // Ensure filtering is applied if search term is set
-  const recipesToDisplay = filteredRecipes.length > 0 ? filteredRecipes : recipes;
+  const recipes = useRecipeStore(state => state.filteredRecipes);
 
   return (
     <div>
-      <SearchBar />
-      {recipesToDisplay.map(recipe => (
-        <div key={recipe.id}>
-          <h3>{recipe.title}</h3>
-          <p>{recipe.description}</p>
-        </div>
-      ))}
+      {recipes.length === 0 ? (
+        <p>No recipes found</p>
+      ) : (
+        recipes.map(recipe => (
+          <div key={recipe.id}>
+            <h3>
+              <Link to={`/recipes/${recipe.id}`}>{recipe.title}</Link>
+            </h3>
+            <p>{recipe.description}</p>
+          </div>
+        ))
+      )}
     </div>
   );
 };
