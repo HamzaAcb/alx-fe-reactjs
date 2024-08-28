@@ -1,24 +1,16 @@
-import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom'; // Import Link from react-router-dom
-import { useRecipeStore } from './recipeStore';
+import { Link } from 'react-router-dom';
+import useRecipeStore from './recipeStore';
 
 const RecipeList = () => {
   const recipes = useRecipeStore(state => state.filteredRecipes);
-  const filterRecipes = useRecipeStore(state => state.filterRecipes);
-  const searchTerm = useRecipeStore(state => state.searchTerm);
-
-  useEffect(() => {
-    filterRecipes();
-  }, [searchTerm]);
 
   return (
     <div>
       {recipes.map(recipe => (
         <div key={recipe.id}>
-          <h3>
-            <Link to={`/recipe/${recipe.id}`}>{recipe.title}</Link> {/* Use Link for navigation */}
-          </h3>
+          <h3>{recipe.title}</h3>
           <p>{recipe.description}</p>
+          <Link to={`/recipe/${recipe.id}`}>View Details</Link>
         </div>
       ))}
     </div>
@@ -26,4 +18,3 @@ const RecipeList = () => {
 };
 
 export default RecipeList;
-
