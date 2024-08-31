@@ -1,4 +1,3 @@
-// src/components/RegistrationForm.js
 import React, { useState } from 'react';
 
 const RegistrationForm = () => {
@@ -9,14 +8,15 @@ const RegistrationForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
     if (!username || !email || !password) {
       setError('All fields are required');
       return;
     }
+
     setError('');
-    // Mock API call here
     console.log({ username, email, password });
-    // Reset form fields
+
     setUsername('');
     setEmail('');
     setPassword('');
@@ -25,28 +25,25 @@ const RegistrationForm = () => {
   return (
     <form onSubmit={handleSubmit}>
       <div>
-        <label htmlFor="username">Username:</label>
+        <label>Username:</label>
         <input
           type="text"
-          id="username"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
         />
       </div>
       <div>
-        <label htmlFor="email">Email:</label>
+        <label>Email:</label>
         <input
           type="email"
-          id="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
       </div>
       <div>
-        <label htmlFor="password">Password:</label>
+        <label>Password:</label>
         <input
           type="password"
-          id="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
