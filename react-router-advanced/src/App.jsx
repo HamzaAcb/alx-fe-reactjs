@@ -4,22 +4,22 @@ import Home from './components/Home';
 import Profile from './components/Profile';
 import ProfileDetails from './components/ProfileDetails';
 import ProfileSettings from './components/ProfileSettings';
+import BlogPost from './components/Blog'; // Import BlogPost component
 import NotFound from './components/NotFound';
 import ProtectedRoute from './components/ProtectedRoute';
 
 function App() {
-  const isAuthenticated = true; // Example authentication status
+  const isAuthenticated = true; // Set to true for testing
 
   return (
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route element={<ProtectedRoute isAuthenticated={isAuthenticated} />}>
-          <Route path="profile/*" element={<Profile />}>
-            <Route path="details" element={<ProfileDetails />} />
-            <Route path="settings" element={<ProfileSettings />} />
-          </Route>
+        <Route path="profile/*" element={<Profile />}>
+          <Route path="details" element={<ProfileDetails />} />
+          <Route path="settings" element={<ProfileSettings />} />
         </Route>
+        <Route path="blog/:id" element={<BlogPost />} /> {/* Dynamic Route for Blog Posts */}
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Router>
@@ -27,4 +27,3 @@ function App() {
 }
 
 export default App;
-
