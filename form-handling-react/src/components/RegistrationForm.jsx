@@ -10,6 +10,9 @@ const RegistrationForm = () => {
     e.preventDefault();
     const newErrors = {};
 
+    if (!username) {
+      newErrors.username = 'Username is required';
+    }
     if (!email) {
       newErrors.email = 'Email is required';
     }
@@ -40,6 +43,7 @@ const RegistrationForm = () => {
           value={username}
           onChange={(e) => setUsername(e.target.value)}
         />
+        {errors.username && <p style={{ color: 'red' }}>{errors.username}</p>}
       </div>
       <div>
         <label>Email:</label>
@@ -65,3 +69,4 @@ const RegistrationForm = () => {
 };
 
 export default RegistrationForm;
+
