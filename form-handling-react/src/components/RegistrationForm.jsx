@@ -14,9 +14,11 @@ const RegistrationForm = () => {
       return;
     }
 
-    setError('');
+    setError(''); // Clear the error if validation passes
+
     console.log({ username, email, password });
 
+    // Clear the input fields after submission
     setUsername('');
     setEmail('');
     setPassword('');
