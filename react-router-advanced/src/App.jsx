@@ -15,11 +15,11 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="profile/*" element={<Profile />}>
-          <Route path="details" element={<ProfileDetails />} />
-          <Route path="settings" element={<ProfileSettings />} />
+        <Route path="/profile/*" element={<Profile />}>
+          <Route path="/details" element={<ProfileDetails />} />
+          <Route path="/settings" element={<ProfileSettings />} />
         </Route>
-        <Route path="blog/:id" element={<Blog />} /> {/* Dynamic Route for Blog Posts */}
+        <Route path="/blog/:id" element={<Blog />} /> {/* Dynamic Route for Blog Posts */}
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Router>
