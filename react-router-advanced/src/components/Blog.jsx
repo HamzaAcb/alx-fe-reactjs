@@ -1,17 +1,16 @@
 import React from 'react';
-import { Routes, Route, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 function BlogPost() {
-  const { postId } = useParams();
-  return <div>Viewing blog post {postId}</div>;
-}
+  const { id } = useParams(); // Get the dynamic id from the URL
 
-function Blog() {
   return (
-    <Routes>
-      <Route path=":postId" element={<BlogPost />} />
-    </Routes>
+    <div>
+      <h2>Blog Post {id}</h2>
+      <p>This is the content of blog post with ID: {id}.</p>
+    </div>
   );
 }
 
 export default Blog;
+

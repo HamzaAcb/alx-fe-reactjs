@@ -4,7 +4,7 @@ import Home from './components/Home';
 import Profile from './components/Profile';
 import ProfileDetails from './components/ProfileDetails';
 import ProfileSettings from './components/ProfileSettings';
-import BlogPost from './components/Blog'; // Import BlogPost component
+import BlogPost from './components/Blog'; 
 import NotFound from './components/NotFound';
 import ProtectedRoute from './components/ProtectedRoute';
 
@@ -19,7 +19,7 @@ function App() {
           <Route path="details" element={<ProfileDetails />} />
           <Route path="settings" element={<ProfileSettings />} />
         </Route>
-        <Route path="blog/:id" element={<BlogPost />} /> {/* Dynamic Route for Blog Posts */}
+        <Route path="blog/:id" element={<Blog />} /> {/* Dynamic Route for Blog Posts */}
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Router>
