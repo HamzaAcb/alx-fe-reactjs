@@ -1,7 +1,10 @@
 import React from 'react';
 import { Navigate, Outlet } from 'react-router-dom';
+import useAuth from '../hooks/useAuth';
 
-function ProtectedRoute({ isAuthenticated }) {
+function ProtectedRoute() {
+  const { isAuthenticated } = useAuth(); // Use the useAuth hook
+
   // If the user is not authenticated, redirect to the home page or a login page
   if (!isAuthenticated) {
     return <Navigate to="/" replace />;
@@ -12,4 +15,3 @@ function ProtectedRoute({ isAuthenticated }) {
 }
 
 export default ProtectedRoute;
-
