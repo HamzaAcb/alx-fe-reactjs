@@ -20,11 +20,11 @@ const RecipeDetail = () => {
       {/* Recipe Title */}
       <h1 className="text-4xl font-bold mb-4">{recipe.title}</h1>
       
-      {/* Recipe Image */}
+      {/* Recipe Image with shadow */}
       <img 
         src={recipe.image} 
         alt={recipe.title} 
-        className="w-full h-64 object-cover rounded-lg mb-4"
+        className="w-full h-64 object-cover rounded-lg mb-4 shadow-lg"  /* Added shadow-lg */
       />
       
       {/* Recipe Summary */}
@@ -54,4 +54,5 @@ const RecipeDetail = () => {
 };
 
 export default RecipeDetail;
+
 
