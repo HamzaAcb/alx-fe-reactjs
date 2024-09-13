@@ -34,9 +34,9 @@ const RecipeDetail = () => {
       <div className="mb-4">
         <h2 className="text-2xl font-semibold mb-2">Ingredients</h2>
         <ul className="list-disc list-inside">
-          <li>Example Ingredient 1</li>
-          <li>Example Ingredient 2</li>
-          <li>Example Ingredient 3</li>
+          {recipe.ingredients.map((ingredient, index) => (
+            <li key={index}>{ingredient}</li>
+          ))}
         </ul>
       </div>
       
@@ -44,9 +44,9 @@ const RecipeDetail = () => {
       <div>
         <h2 className="text-2xl font-semibold mb-2">Instructions</h2>
         <ol className="list-decimal list-inside">
-          <li>Example Step 1</li>
-          <li>Example Step 2</li>
-          <li>Example Step 3</li>
+          {recipe.instructions.map((instruction, index) => (
+            <li key={index}>{instruction}</li>
+          ))}
         </ol>
       </div>
     </div>
