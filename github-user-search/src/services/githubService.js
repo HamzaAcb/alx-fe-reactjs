@@ -1,8 +1,7 @@
 // src/services/githubService.js
 import axios from 'axios';
 
-export const fetchUserData = async (username, location, minRepos) => {
-  // Construct the query string for the advanced search
+export const fetchUserData = async (username, location, minRepos, page = 1) => {
   let query = `user:${username}`;
 
   if (location) {
@@ -13,12 +12,13 @@ export const fetchUserData = async (username, location, minRepos) => {
     query += ` repos:>=${minRepos}`;
   }
 
-  const response = await axios.get(`https://api.github.com/search/users?q=${encodeURIComponent(query)}`);
+  const perPage = 10; // Number of results per page
+  const response = await axios.get(`https://api.github.com/search/users?q=${encodeURIComponent(query)}&page=${page}&per_page=${perPage}`);
   
   if (response.data.total_count === 0) {
     throw new Error('No users found for the given criteria.');
   }
 
-  // Return the first user from the search results
-  return response.data.items[0]; // or handle multiple results as needed
+  return response.data; // Return the full response for pagination handling
 };
+
