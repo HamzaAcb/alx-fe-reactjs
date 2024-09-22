@@ -16,7 +16,7 @@ const App = () => {
       setUserData(data);  // Set user data if successful
       setError('');
     } catch (err) {
-      setError('Looks like we can’t find the user');  // Set error if the user is not found
+      setError('Looks like we cant find the user');  // Set error if the user is not found
     } finally {
       setLoading(false);  // Set loading to false when API call finishes
     }
