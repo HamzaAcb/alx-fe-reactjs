@@ -27,7 +27,7 @@ const Search = ({ onSearch }) => {
         <button type="submit">Search</button>
       </form>
       {loading && <p>Loading...</p>} {/* Display loading message */}
-      {error && <p>Looks like we can’t find the user</p>} {/* Display error message */}
+      {error && <p>Looks like we cant find the user</p>} {/* Display error message */}
       {/* Placeholder for user data (avatar and login) */}
       {/* These would be rendered after a successful API call in App.jsx */}
       <div>
