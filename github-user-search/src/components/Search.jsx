@@ -1,28 +1,30 @@
+// src/components/Search.jsx
 import React, { useState } from 'react';
 
 const Search = ({ onSearch }) => {
-  const [username, setUsername] = useState('');
+  const [searchTerm, setSearchTerm] = useState('');
 
-  // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (username) {
-      onSearch(username);
-      setUsername('');  // Clear input field after search
+    if (searchTerm.trim()) {
+      onSearch(searchTerm);  // Trigger search when the form is submitted
     }
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input
-        type="text"
-        placeholder="Search GitHub Username"
-        value={username}
-        onChange={(e) => setUsername(e.target.value)}
-      />
-      <button type="submit">Search</button>
-    </form>
+    <div>
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          placeholder="Enter GitHub username"
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+        />
+        <button type="submit">Search</button>
+      </form>
+    </div>
   );
 };
 
 export default Search;
+
